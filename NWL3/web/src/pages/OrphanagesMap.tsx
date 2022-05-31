@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { FiPlus } from 'react-icons/fi';
+import { MapContainer, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+
 
 import mapMarkerImg from '../images/map-maker.svg';
+import '../styles/pages/orphanage-map.css';
 
 function OrphanagesMap(){
     return(
@@ -19,6 +24,16 @@ function OrphanagesMap(){
                     <span>São Paulo</span>
                 </footer>
             </aside>
+
+            <MapContainer
+               center={[-20.2857709,-50.2525063]} zoom={13} scrollWheelZoom={false}
+            >
+                <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+            </MapContainer>
+
+            <Link to="" className="create-orphanage">
+                <FiPlus size={32} color="#FFF" />
+            </Link>
         </div>
     );
 }
